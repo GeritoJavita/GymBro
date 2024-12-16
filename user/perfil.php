@@ -79,6 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/perfil.css">
 </head>
 <body>
+<header>
+    <div class="user-info">
+        <img src="https://via.placeholder.com/40" alt="Icono de usuario">
+        <span><?php echo htmlspecialchars($usuario['username']); ?></span>
+    </div>
+</header>
+
 <section class="perfil-usuario">
     <h2>Editar Perfil</h2>
 
