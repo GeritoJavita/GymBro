@@ -1,0 +1,67 @@
+/* Estilos para la tabla de usuarios */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.user-table thead {
+    background-color: #ffcc00;
+}
+
+.user-table th, .user-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.user-table th {
+    text-transform: uppercase;
+}
+
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.edit-btn, .delete-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}

@@ -1,0 +1,84 @@
+/* Reiniciar estilos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #80deea); /* Fondo con degradado */
+    color: #333; /* Color de texto */
+    display: flex;
+    justify-content: center; /* Centrar contenido horizontalmente */
+    align-items: center; /* Centrar contenido verticalmente */
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+/* Estilos del formulario */
+form {
+    background: #fff; /* Fondo blanco para el formulario */
+    padding: 30px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    width: 350px; /* Ancho fijo del formulario */
+    text-align: center; /* Centrar texto dentro del formulario */
+    transition: transform 0.3s; /* Efecto de transformación */
+}
+
+form:hover {
+    transform: translateY(-5px); /* Levanta el formulario al pasar el mouse */
+}
+
+/* Estilos del título */
+h2 {
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: #00796b; /* Color verde suave */
+    font-size: 24px; /* Tamaño de fuente más grande */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Estilos de los inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Ancho completo */
+    padding: 12px; /* Espacio interno */
+    margin: 15px 0; /* Espacio entre inputs */
+    border: 2px solid #00796b; /* Borde verde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para el borde */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #004d40; /* Cambia el color del borde al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 77, 64, 0.5); /* Sombra en el enfoque */
+}
+
+/* Estilos del botón */
+button{
+    background: #00796b; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 12px 20px; /* Espacio interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    transition: background 0.3s, transform 0.3s; /* Transición suave */
+}
+button a{
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin decoración de enlace */
+}
+button:hover {
+    background: #004d40; /* Color de fondo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/*1 Estilos del mensaje de error */
+p {
+    color: red; /* Color rojo para el mensaje de error */
+    margin-top: 10px; /* Espacio arriba del mensaje */
+    font-weight: bold; /* Texto en negrita */
+}

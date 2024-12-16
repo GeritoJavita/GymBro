@@ -1,0 +1,110 @@
+/* Register Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.register-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #444;
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.register-form input:focus {
+    border-color: #ffcc00;
+}
+
+.register-btn, .back-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #222;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.register-btn:hover, .back-btn:hover {
+    background-color: #e6b800;
+}
+
+.register-btn a, .back-btn a {
+    color: #222;
+    text-decoration: none;
+    display: block;
+}
+
+.success-msg {
+    color: green;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .register-box {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .register-form input {
+        padding: 10px;
+    }
+
+    .register-btn, .back-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
