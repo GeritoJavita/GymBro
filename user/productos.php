@@ -92,15 +92,13 @@ if (isset($_POST['add_to_cart'])) {
             </ul>
 
             <!-- Ícono del carrito con contador -->
-            <?php
-            $carrito_count = isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0;
-            ?>
+           
             <div class="navbar-icons">
                 <a href="../carrito/carrito.php" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count"><?php echo $carrito_count; ?></span> <!-- Aquí se actualizará dinámicamente el número de productos -->
+                    <!-- Aquí se actualizará dinámicamente el número de productos -->
                 </a>
-                <span class="user-welcome">Hola, <?php echo htmlspecialchars($user); ?></span>
+                <span class="user-welcome">BIENVENIDO, <?php echo htmlspecialchars($user); ?></span>
             </div>
 
         </nav>

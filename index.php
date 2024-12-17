@@ -8,6 +8,7 @@
     <title>GYM | BRO - Venta de Productos Alimenticios</title>
     <link rel="stylesheet" href="css/style_index.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
@@ -41,12 +42,14 @@ if ($result->num_rows > 0) {
             <li><a href="index.php">Inicio</a></li>
             <li><a href="./login/login.php">Iniciar Sesión</a></li>
             <li><a href="dashboard.php">Contacto</a></li>
+            <li> <a href="about.php">Sobre Nostros</a></li>
             <li><a href="./login/register.php">Registrarse</a></li>
         </ul>
     </nav>
 </header>
 
 <main class="main-content">
+    
     <section class="hero-section">
         <div class="hero-content">
             <h1>Bienvenidos a GYM | BRO</h1>
@@ -55,25 +58,15 @@ if ($result->num_rows > 0) {
         </div>
       
     </section>
+   
 
+    
     <section class="productos-destacados">
         <h2>Productos Destacados</h2>
-        <div class="grid-productos">
-            <?php foreach ($productos as $producto): ?>
-                <div class="producto">
-                    <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>">
-                    <h3><?php echo $producto['nombre']; ?></h3>
-                    <p>Precio: $<?php echo $producto['precio']; ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <div class="grid-productos"> <?php $contador = 0; foreach ($productos as $producto): if ($contador >= 12) break; $contador++; ?> <div class="producto"> <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>"> <h3><?php echo $producto['nombre']; ?></h3> <p>Precio: $<?php echo $producto['precio']; ?></p> </div> <?php endforeach; ?>
     </section>
 
-    <section class="sobre-nosotros">
-        <h2>Sobre Nosotros</h2>
-        <p>Somos una empresa dedicada a ofrecer los mejores productos deportivos para que puedas mantenerte en forma, con una amplia gama de artículos diseñados para cubrir todas tus necesidades de entrenamiento.</p>
-        <a href="sobre_nosotros.php" class="cta-btn">Conoce más</a>
-    </section>
+  
 </main>
 
 <footer class="footer">

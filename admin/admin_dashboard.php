@@ -22,62 +22,94 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style_admin.css">
-    <link rel="stylesheet" href="../css/style_index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <h1 class="mb-0">GYM Dashboard</h1>
+            <a href="../logout.php" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+    </header>
 
-<header>
-    <h1>Bienvenido, Administrador</h1>
-    <nav>
-        <ul>
-            <li><a href="administrar_productos.php">Administrar Productos</a></li>
-            <li><a href="administrar_usuarios.php">Administrar Usuarios</a></li>
-            <li><a href="../logout.php">Cerrar Sesión</a></li>
-        </ul>
-    </nav>
-</header>
-
-
-
-    <main class="main-content">
-        <section class="welcome-section">
-            <h1>Bienvenidos a GYM | BRO</h1>
-            <p>Descubre los mejores productos para mantenerte en forma y llevar una vida saludable.</p>
-            <a href="productos.php" class="cta-btn">Ver Productos</a>
-        </section>
-
-        <!--  Logica para recorrer cada producto existente en la base de datos-->
-        
-        <section class="productos-destacados">
-            <h2>Productos Destacados</h2>
-            <div class="grid-productos">
-                <?php foreach ($productos as $producto): ?>
-                    <div class="producto">
-                        <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>">
-                        <h3><?php echo $producto['nombre']; ?></h3>
-                        <p>Precio: $<?php echo $producto['precio']; ?></p>
-                    </div>
-                <?php endforeach; ?>
+    <!-- Mensaje de bienvenida -->
+    <section class="welcome-section py-4">
+        <div class="container">
+            <div class="alert alert-primary text-center" role="alert">
+                <h3>¡Hola, Administrador <strong>Administrador</strong>! 👋</h3>
+                <p>Esperamos que tengas un excelente día gestionando tu gimnasio.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="sobre-nosotros">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos una empresa dedicada a ofrecer los mejores productos deportivos para que puedas mantenerte en forma, con una amplia gama de artículos diseñados para cubrir todas tus necesidades de entrenamiento.</p>
-            <a href="sobre_nosotros.php" class="cta-btn">Conoce más</a>
+    <!-- Opciones de administración -->
+    <main class="container my-5">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <a href="administrar_productos.php" class="admin-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h2>Productos</h2>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="administrar_usuarios.php" class="admin-card">
+                    <i class="fas fa-users"></i>
+                    <h2>Usuarios</h2>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="administrar_pedidos.php" class="admin-card">
+                    <i class="fas fa-box"></i>
+                    <h2>Pedidos</h2>
+                </a>
+            </div>
+        </div>
+
+        <!-- Estadísticas rápidas -->
+        <section class="statistics-section py-4">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="stats-card">
+                            <i class="fas fa-user-check stats-icon"></i>
+                            <h3>150</h3>
+                            <p>Usuarios Activos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="stats-card">
+                            <i class="fas fa-cart-plus stats-icon"></i>
+                            <h3>35</h3>
+                            <p>Pedidos Pendientes</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="stats-card">
+                            <i class="fas fa-boxes stats-icon"></i>
+                            <h3>120</h3>
+                            <p>Productos en Inventario</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Pie de página -->
+    <footer>
         <p>&copy; 2024 GYM | BRO. Todos los derechos reservados.</p>
         <div class="social-media">
-            <a href="#"><img src="img/facebook_icon.png" alt="Facebook"></a>
-            <a href="#"><img src="img/instagram_icon.png" alt="Instagram"></a>
-            <a href="#"><img src="img/twitter_icon.png" alt="Twitter"></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
