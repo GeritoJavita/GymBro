@@ -32,6 +32,7 @@ while ($row = $result->fetch_assoc()) {
     <title>Carrito de Compras - GYM | BRO</title>
     <!-- Fuentes y Estilos -->
     <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -82,7 +83,7 @@ while ($row = $result->fetch_assoc()) {
                         <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">
                         <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
                     <?php endforeach; ?>
-                    <button type="submit" class="cta-btn">Confirmar Pedido</button>
+                
                 </form>
                 <a href="../pasarela/metodos_pago.php" class="cta-btn">Proceder al Pago</a>
             </div>
@@ -96,9 +97,9 @@ while ($row = $result->fetch_assoc()) {
     <footer class="footer">
         <p>&copy; 2024 GYM | BRO. Todos los derechos reservados.</p>
         <div class="social-media">
-            <a href="#"><img src="../img/facebook_icon.png" alt="Facebook"></a>
-            <a href="#"><img src="../img/instagram_icon.png" alt="Instagram"></a>
-            <a href="#"><img src="../img/twitter_icon.png" alt="Twitter"></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 </body>

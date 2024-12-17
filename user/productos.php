@@ -91,17 +91,16 @@ if (isset($_POST['add_to_cart'])) {
                 <li><a href="../logout.php">Cerrar Sesión</a></li>
             </ul>
 
-            <!-- Ícono del carrito con contador -->
+          
            
-            <div class="navbar-icons">
-                <a href="../carrito/carrito.php" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <!-- Aquí se actualizará dinámicamente el número de productos -->
-                </a>
-                <span class="user-welcome">BIENVENIDO, <?php echo htmlspecialchars($user); ?></span>
-            </div>
+           
+              
+                
+                
 
         </nav>
+        <span class="user-welcome">BIENVENIDO, <?php echo htmlspecialchars($user); ?></span>
+            
     </header>
 
     <main>

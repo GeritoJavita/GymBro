@@ -51,7 +51,17 @@ img {
 .navbar .nav-links a:hover {
     color: #ff7f50;
 }
+.img-icon {
+    display: flex;
+    align-items: center;
+}
 
+.img-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 65px;
+}
 /* Main Content */
 .hero-section {
     display: flex;
@@ -107,7 +117,12 @@ img {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
-
+header .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 .producto {
     background-color: #fff;
     padding: 20px;

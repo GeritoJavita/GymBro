@@ -45,25 +45,20 @@ if ($result->num_rows > 0) {
 
             <ul class="nav-links">
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="carrito.php">Carrito</a></li>
+                <li><a href="../carrito/carrito.php">Carrito</a></li>
                 <li><a href="../user/perfil.php">Perfil</a></li>
                 <li><a href="../logout.php">Cerrar Sesión</a></li>
             </ul>
 
-            <!-- Ícono del carrito con contador -->
-            <?php
-$carrito_count = isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0;
-?>
-            <div class="navbar-icons">
-    <a href="../carrito/carrito.php" class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count"><?php echo $carrito_count; ?></span> <!-- Aquí se actualizará dinámicamente el número de productos -->
-    </a>
-    <span class="user-welcome">Hola, <?php echo htmlspecialchars($user); ?></span>
-</div>
+
 
         </nav>
-    </header>
+        <div class="user-info">
+        <img class="img-icon" src="png.png" alt="Icono de usuario">
+        <span class="user-welcome">Bienvenido!, <?php echo htmlspecialchars($user); ?></span>
+    
+    </div>
+        </header>
 
     <!-- Sección de bienvenida -->
     <main class="main-content">
