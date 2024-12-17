@@ -28,8 +28,8 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Usuario - GYM | BRO</title>
-    <link rel="stylesheet" href="../css/style_gym.css">
-    <link rel="stylesheet" href="../css/style_index.css">
+    <link rel="stylesheet" href="../css/user_dashboard.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -51,13 +51,13 @@ if ($result->num_rows > 0) {
             </ul>
 
 
-
-        </nav>
-        <div class="user-info">
+            <div class="user-info">
         <img class="img-icon" src="png.png" alt="Icono de usuario">
         <span class="user-welcome">Bienvenido!, <?php echo htmlspecialchars($user); ?></span>
     
     </div>
+        </nav>
+       
         </header>
 
     <!-- Sección de bienvenida -->
@@ -72,7 +72,7 @@ if ($result->num_rows > 0) {
         <section class="productos-destacados">
     <h2>Productos Destacados</h2>
     <div class="grid-productos">
-        <?php foreach ($productos as $producto): ?>
+    <?php $contador = 0; foreach ($productos as $producto): if ($contador >= 12) break; $contador++; ?>   
             <div class="producto">
                 <img src="<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>">
                 <h3><?php echo $producto['nombre']; ?></h3>

@@ -93,8 +93,10 @@ while ($row = $result->fetch_assoc()) {
         <?php endif; ?>
     </main>
 
-    <!-- Pie de Página -->
-    <footer class="footer">
+ 
+</body>
+   <!-- Pie de Página -->
+   <footer class="footer">
         <p>&copy; 2024 GYM | BRO. Todos los derechos reservados.</p>
         <div class="social-media">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -102,6 +104,5 @@ while ($row = $result->fetch_assoc()) {
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
-</body>
 </html>
 

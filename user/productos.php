@@ -99,8 +99,11 @@ if (isset($_POST['add_to_cart'])) {
                 
 
         </nav>
-        <span class="user-welcome">BIENVENIDO, <?php echo htmlspecialchars($user); ?></span>
-            
+        <div class="user-info">
+        <img class="img-icon" src="png.png" alt="Icono de usuario">
+        <span class="user-welcome">Bienvenido!, <?php echo htmlspecialchars($user); ?></span>
+    
+    </div>   
     </header>
 
     <main>
