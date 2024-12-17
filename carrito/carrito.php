@@ -76,17 +76,16 @@ while ($row = $result->fetch_assoc()) {
                 <?php endforeach; ?>
             </div>
 
-            <!-- Acciones del Carrito -->
-            <div class="carrito-acciones">
-                <form action="../pasarela/metodos_pago.php" method="POST">
-                    <?php foreach ($carrito as $producto): ?>
-                        <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">
-                        <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
-                    <?php endforeach; ?>
-                
-                </form>
-                <a href="../pasarela/metodos_pago.php" class="cta-btn">Proceder al Pago</a>
-            </div>
+           <!-- Acciones del Carrito -->
+<div class="carrito-acciones">
+    <form action="../pasarela/confirmar_pedido.php" method="POST">
+        <?php foreach ($carrito as $producto): ?>
+            <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">
+            <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
+        <?php endforeach; ?>
+        <button type="submit" class="cta-btn">Confirmar Pedido</button>
+    </form>
+</div>
         <?php else: ?>
             <!-- Mensaje si el carrito está vacío -->
             <p>Tu carrito está vacío.</p>

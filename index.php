@@ -54,7 +54,7 @@ if ($result->num_rows > 0) {
         <div class="hero-content">
             <h1>Bienvenidos a GYM | BRO</h1>
             <p>Descubre los mejores productos para mantenerte en forma y llevar una vida saludable.</p>
-            <a href="productos.php" class="cta-btn">Ver Productos</a>
+            <a href="./login/login.php" class="cta-btn">Ver Productos</a>
         </div>
       
     </section>
@@ -72,9 +72,9 @@ if ($result->num_rows > 0) {
 <footer class="footer">
     <p>&copy; 2024 GYM | BRO. Todos los derechos reservados.</p>
     <div class="social-media">
-        <a href="#"><img src="img/facebook_icon.png" alt="Facebook"></a>
-        <a href="#"><img src="img/instagram_icon.png" alt="Instagram"></a>
-        <a href="#"><img src="img/twitter_icon.png" alt="Twitter"></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
 </footer>
 
