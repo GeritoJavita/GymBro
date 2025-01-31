@@ -64,14 +64,12 @@ if ($resultProductos->num_rows > 0) {
     <!-- Opciones de administración -->
     <main class="container my-5">
         <div class="row text-center">
-        <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4">
                 <a href="administrar_usuarios.php" class="admin-card">
                     <i class="fas fa-users"></i>
                     <h2>Usuarios</h2>
                 </a>
             </div>
-            
-           
             <div class="col-md-4 mb-4">
                 <a href="administrar_pedidos.php" class="admin-card">
                     <i class="fas fa-box"></i>
@@ -114,6 +112,11 @@ if ($resultProductos->num_rows > 0) {
                 </div>
             </div>
         </section>
+        
+        <!-- Botón de Backup -->
+        <div class="text-center my-4">
+            <a href="../php/backup.php" class="btn btn-primary"><i class="fas fa-database"></i> Generar Backup</a>
+        </div>
     </main>
 
     <!-- Pie de página -->
