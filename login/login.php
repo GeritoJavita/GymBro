@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_SESSION['id'])) {
     // Recupera el carrito de la base de datos para este usuario
     $user_id = $_SESSION['id'];
-    $sql = "SELECT * FROM carrito WHERE user_id = '$user_id'";
+    $sql = "SELECT * FROM carrito WHERE usuario_id = '$user_id'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {

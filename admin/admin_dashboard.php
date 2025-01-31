@@ -1,16 +1,31 @@
 <?php
-
-
-
 include('../php/database.php');
 
+// Consulta para obtener el número de usuarios
+$queryUsuarios = "SELECT COUNT(*) AS total_usuarios FROM usuarios";
+$resultUsuarios = $conn->query($queryUsuarios);
+$rowUsuarios = $resultUsuarios->fetch_assoc();
+$totalUsuarios = $rowUsuarios['total_usuarios'];
+
+// Consulta para obtener el número de pedidos pendientes
+$queryPedidosPendientes = "SELECT COUNT(*) AS total_pedidos_pendientes FROM pedidos WHERE estado_entrega = 'pendiente'";
+$resultPedidosPendientes = $conn->query($queryPedidosPendientes);
+$rowPedidosPendientes = $resultPedidosPendientes->fetch_assoc();
+$totalPedidosPendientes = $rowPedidosPendientes['total_pedidos_pendientes'];
+
+// Consulta para obtener el número de productos en inventario
+$queryProductosInventario = "SELECT COUNT(*) AS total_productos_inventario FROM productos WHERE stock > 0";
+$resultProductosInventario = $conn->query($queryProductosInventario);
+$rowProductosInventario = $resultProductosInventario->fetch_assoc();
+$totalProductosInventario = $rowProductosInventario['total_productos_inventario'];
+
 // Consulta para obtener todos los productos
-$query = "SELECT * FROM productos";
-$result = $conn->query($query);
+$queryProductos = "SELECT * FROM productos";
+$resultProductos = $conn->query($queryProductos);
 $productos = [];
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+if ($resultProductos->num_rows > 0) {
+    while ($row = $resultProductos->fetch_assoc()) {
         $productos[] = $row;
     }
 }
@@ -49,22 +64,24 @@ if ($result->num_rows > 0) {
     <!-- Opciones de administración -->
     <main class="container my-5">
         <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <a href="administrar_productos.php" class="admin-card">
-                    <i class="fas fa-dumbbell"></i>
-                    <h2>Productos</h2>
-                </a>
-            </div>
-            <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4">
                 <a href="administrar_usuarios.php" class="admin-card">
                     <i class="fas fa-users"></i>
                     <h2>Usuarios</h2>
                 </a>
             </div>
+            
+           
             <div class="col-md-4 mb-4">
                 <a href="administrar_pedidos.php" class="admin-card">
                     <i class="fas fa-box"></i>
                     <h2>Pedidos</h2>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="administrar_productos.php" class="admin-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h2>Productos</h2>
                 </a>
             </div>
         </div>
@@ -76,21 +93,21 @@ if ($result->num_rows > 0) {
                     <div class="col-md-4 mb-4">
                         <div class="stats-card">
                             <i class="fas fa-user-check stats-icon"></i>
-                            <h3>150</h3>
+                            <h3><?php echo $totalUsuarios; ?></h3>
                             <p>Usuarios Activos</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="stats-card">
                             <i class="fas fa-cart-plus stats-icon"></i>
-                            <h3>35</h3>
+                            <h3><?php echo $totalPedidosPendientes; ?></h3>
                             <p>Pedidos Pendientes</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="stats-card">
                             <i class="fas fa-boxes stats-icon"></i>
-                            <h3>120</h3>
+                            <h3><?php echo $totalProductosInventario; ?></h3>
                             <p>Productos en Inventario</p>
                         </div>
                     </div>
@@ -112,4 +129,3 @@ if ($result->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

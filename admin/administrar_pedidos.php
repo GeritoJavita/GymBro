@@ -48,7 +48,7 @@ $result = $conn->query("SELECT p.id, p.fecha, u.username AS usuario, SUM(dp.cant
                     <td><?php echo $pedido['estado_pago']; ?></td>
                     <td>
                         <a href="ver_pedido.php?id=<?php echo $pedido['id']; ?>">Ver</a> |
-                        <a href="eliminar_pedido.php?id=<?php echo $pedido['id']; ?>" class="delete-btn" onclick="return confirm('¿Seguro que deseas eliminar este pedido?')">Eliminar</a>
+                        <a href="../crud_pedidos/eliminar_pe.php?id=<?php echo $pedido['id']; ?>" class="delete-btn" onclick="return confirm('¿Seguro que deseas eliminar este pedido?')">Eliminar</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

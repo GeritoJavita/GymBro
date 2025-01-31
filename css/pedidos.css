@@ -1,0 +1,145 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo a {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+/* Estilos para la sección principal */
+.main-content {
+    width: 90%;
+    max-width: 800px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la lista de pedidos */
+.pedidos-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pedido-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.pedido-item:last-child {
+    border-bottom: none;
+}
+
+.pedido-item h3 {
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.pedido-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Estilos para el detalle de pedido */
+.detalle-pedido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.detalle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.producto-imagen {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón de cancelar pedido */
+.btn-eliminar {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.btn-eliminar:hover {
+    background-color: #ff1a1a;
+}
+
+/* Estilos para el pie de página */
+.footer {
+    margin-top: auto;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer .social-media {
+    margin-top: 10px;
+}
+
+.footer .social-media a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.footer .social-media a:hover {
+    color: #007bff;
+}

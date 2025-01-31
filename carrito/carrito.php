@@ -47,6 +47,7 @@ while ($row = $result->fetch_assoc()) {
                 <li><a href="carrito.php">Carrito</a></li>
                 <li><a href="../user/perfil.php">Perfil</a></li>
                 <li><a href="../logout.php">Cerrar Sesión</a></li>
+                <li><a href="../user/pedidos.php">Pedidos</a></li>
             </ul>
         </nav>
     </header>
@@ -84,8 +85,11 @@ while ($row = $result->fetch_assoc()) {
             <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
         <?php endforeach; ?>
         <button type="submit" class="cta-btn">Confirmar Pedido</button>
+  
     </form>
+   
 </div>
+
         <?php else: ?>
             <!-- Mensaje si el carrito está vacío -->
             <p>Tu carrito está vacío.</p>

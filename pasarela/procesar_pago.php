@@ -17,12 +17,15 @@ $conn->query("INSERT INTO pagos (pedido_id, metodo_pago, estado_pago)
 <html lang="es">
 <head>
     <title>Resumen de Pago | GYM BRO</title>
-    <link rel="stylesheet" href="../css/style_dashboard.css">
+    <link rel="stylesheet" href="../css/realizado.css">
 </head>
 <body>
-    <h1>Pago Realizado</h1>
-    <p>Tu pago fue: <strong><?php echo $estado_pago; ?></strong></p>
-    <p>Método de pago: <strong><?php echo htmlspecialchars($metodo_pago); ?></strong></p>
-    <a href="../user/productos.php" class="cta-btn">Volver a la Tienda</a>
+    <div class="container">
+        <h2>Pago Realizado</h2>
+        <p>Tu pago fue: <strong><?php echo $estado_pago; ?></strong></p>
+        <p>Método de pago: <strong><?php echo htmlspecialchars($metodo_pago); ?></strong></p>
+        <a href="../user/productos.php" class="cta-btn">Volver a la Tienda</a>
+    </div>
 </body>
 </html>
+
