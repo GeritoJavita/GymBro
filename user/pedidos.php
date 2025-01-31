@@ -93,6 +93,7 @@ foreach ($pedidos as $pedido) {
                             <input type="hidden" name="pedido_id" value="<?php echo $pedido['id']; ?>">
                             <button type="submit" class="btn-eliminar">Cancelar Pedido</button>
                         </form>
+                        <a href="../php/imprimir_pedido.php?id=<?php echo $pedido['id']; ?>" class="btn-imprimir">Imprimir</a>
                     </div>
                 <?php endforeach; ?>
             </div>

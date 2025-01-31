@@ -81,7 +81,7 @@ if (isset($_POST['add_to_cart'])) {
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="index.php">GYM | BRO</a>
+                <a href="user_dashboard.php">GYM | BRO</a>
             </div>
 
             <ul class="nav-links">

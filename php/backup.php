@@ -1,5 +1,5 @@
 <?php
-include('../php/database.php');
+include('database.php');
 
 // Usar las variables de conexión directamente del archivo incluido
 $servername = $host;

@@ -78,28 +78,23 @@ while ($row = $result->fetch_assoc()) {
             </div>
 
            <!-- Acciones del Carrito -->
-<div class="carrito-acciones">
-    <form action="../pasarela/confirmar_pedido.php" method="POST">
-        <?php foreach ($carrito as $producto): ?>
-            <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">
-            <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
-        <?php endforeach; ?>
-        <button type="submit" class="cta-btn">Confirmar Pedido</button>
-  
-    </form>
-   
-</div>
-
+           <div class="carrito-acciones">
+                <form action="../pasarela/confirmar_pedido.php" method="POST">
+                    <?php foreach ($carrito as $producto): ?>
+                        <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">
+                        <input type="hidden" name="cantidad[]" value="<?php echo $producto['cantidad']; ?>">
+                    <?php endforeach; ?>
+                    <button type="submit" class="cta-btn">Confirmar Pedido</button>
+                </form>
+            </div>
         <?php else: ?>
             <!-- Mensaje si el carrito está vacío -->
             <p>Tu carrito está vacío.</p>
         <?php endif; ?>
     </main>
 
- 
-</body>
-   <!-- Pie de Página -->
-   <footer class="footer">
+    <!-- Pie de Página -->
+    <footer class="footer">
         <p>&copy; 2024 GYM | BRO. Todos los derechos reservados.</p>
         <div class="social-media">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -108,4 +103,3 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </footer>
 </html>
-
