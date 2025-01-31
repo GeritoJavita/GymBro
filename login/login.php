@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user'] = $user['username'];
         $_SESSION['role'] = $user['role'];
         $_SESSION['id'] = $user['id'];
-       
 
         if ($user['role'] == 'admin') {
             header('Location: ../admin/admin_dashboard.php');
@@ -28,33 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Usuario o contraseña incorrectos";
     }
 }
-
-// Cargar el carrito solo si el usuario está autenticado
-if (isset($_SESSION['id'])) {
-    // Recupera el carrito de la base de datos para este usuario
-    $user_id = $_SESSION['id'];
-    $sql = "SELECT * FROM carrito WHERE usuario_id = '$user_id'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['carrito'] = [];
-        while ($producto = mysqli_fetch_assoc($result)) {
-            $_SESSION['carrito'][] = $producto;
-        }
-    } else {
-        echo "No se encontraron productos en el carrito.";
-    }
-    
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - GYM | BRO</title>
-        
     <link rel="stylesheet" href="../css/style_login.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>

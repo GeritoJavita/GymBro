@@ -60,7 +60,7 @@ foreach ($pedidos as $pedido) {
             </div>
             <ul class="nav-links">
                 <li><a href="productos.php">Productos</a></li>
-                <li><a href="carrito.php">Carrito</a></li>
+                <li><a href="../carrito/carrito.php">Carrito</a></li>
                 <li><a href="perfil.php">Perfil</a></li>
                 <li><a href="../logout.php">Cerrar Sesión</a></li>
             </ul>

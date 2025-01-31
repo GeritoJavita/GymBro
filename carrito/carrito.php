@@ -40,7 +40,7 @@ while ($row = $result->fetch_assoc()) {
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="../index.php">GYM | BRO</a>
+                <a href="../user/user_dashboard.php">GYM | BRO</a>
             </div>
             <ul class="nav-links">
                 <li><a href="../user/productos.php">Productos</a></li>
@@ -77,8 +77,8 @@ while ($row = $result->fetch_assoc()) {
                 <?php endforeach; ?>
             </div>
 
-           <!-- Acciones del Carrito -->
-           <div class="carrito-acciones">
+            <!-- Acciones del Carrito -->
+            <div class="carrito-acciones">
                 <form action="../pasarela/confirmar_pedido.php" method="POST">
                     <?php foreach ($carrito as $producto): ?>
                         <input type="hidden" name="producto_id[]" value="<?php echo $producto['producto_id']; ?>">

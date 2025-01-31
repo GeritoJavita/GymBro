@@ -8,53 +8,58 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 
-// Obtener el ID del usuario
+// Obtener el ID del usuario desde la sesión
 $user_id = $_SESSION['id'];
 
-// Datos del pedido
-$productos = $_POST['producto_id'];
-$cantidades = $_POST['cantidad'];
+// Obtener los productos y cantidades del formulario
+$productos = $_POST['producto_id'] ?? [];
+$cantidades = $_POST['cantidad'] ?? [];
 
-// Confirmar pedido
+$total_pedido = 0;
+
+// Iniciar transacción
 $conn->begin_transaction();
 try {
-    // Insertar el pedido
-    $stmt = $conn->prepare("INSERT INTO pedidos (usuario_id, estado_entrega) VALUES (?, 'pendiente')");
-    $stmt->bind_param("i", $user_id);
+    // Insertar pedido en la tabla 'pedidos'
+    $query = "INSERT INTO pedidos (usuario_id, fecha, total, estado_entrega) VALUES (?, NOW(), ?, 'Pendiente')";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("id", $user_id, $total_pedido); // 'i' para entero y 'd' para decimal
     $stmt->execute();
     $pedido_id = $stmt->insert_id;
 
-    // Insertar los detalles del pedido
-    $stmt = $conn->prepare("INSERT INTO detalle_pedido (pedido_id, producto_id, cantidad, precio) VALUES (?, ?, ?, ?)");
+    // Insertar cada producto en 'detalle_pedido'
     foreach ($productos as $index => $producto_id) {
         $cantidad = $cantidades[$index];
-        // Obtener el precio del producto
-        $stmt_precio = $conn->prepare("SELECT precio FROM productos WHERE id = ?");
-        $stmt_precio->bind_param("i", $producto_id);
-        $stmt_precio->execute();
-        $result_precio = $stmt_precio->get_result();
-        $producto = $result_precio->fetch_assoc();
-        $precio = $producto['precio'];
+        $precio_query = $conn->query("SELECT precio FROM productos WHERE id = $producto_id");
+        $precio = $precio_query->fetch_assoc()['precio'];
 
-        $stmt->bind_param("iiid", $pedido_id, $producto_id, $cantidad, $precio);
+        $total_pedido += $precio * $cantidad;
+
+        $stmt = $conn->prepare("INSERT INTO detalle_pedido (pedido_id, producto_id, cantidad, precio) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iiid", $pedido_id, $producto_id, $cantidad, $precio); // Usamos 'i' para enteros y 'd' para decimal
         $stmt->execute();
     }
 
+    // Actualizar el total del pedido
+    $query = "UPDATE pedidos SET total = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("di", $total_pedido, $pedido_id); // 'd' para decimal y 'i' para entero
+    $stmt->execute();
+
     // Eliminar los productos del carrito
-    $stmt = $conn->prepare("DELETE FROM carrito WHERE usuario_id = ?");
+    $stmt = $conn->prepare("DELETE FROM carrito WHERE usuario_id = ? AND producto_id IN (" . implode(',', array_map('intval', $productos)) . ")");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
 
     // Confirmar la transacción
     $conn->commit();
-    header('Location: ../user/pedidos.php');
 } catch (Exception $e) {
     // Revertir la transacción en caso de error
     $conn->rollback();
     echo "Error al confirmar el pedido: " . $e->getMessage();
+    exit();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -63,7 +68,6 @@ try {
     <link rel="stylesheet" href="../css/pago.css">
 </head>
 <body>
-
     <form method="POST" action="procesar_pago.php">
         <input type="hidden" name="pedido_id" value="<?php echo $pedido_id; ?>">
         <label for="metodo_pago">Método de Pago:</label>
